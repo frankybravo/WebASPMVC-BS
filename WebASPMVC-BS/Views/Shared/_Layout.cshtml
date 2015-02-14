@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        <title>@ViewBag.Title - Bootstrap</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/css")
@@ -12,32 +12,19 @@
         <header>
             <div class="content-wrapper">
                     <div class="navbar-collapse" >
-                        <a class="btn  btn-default" href="/Home/Index">Home</a>
-                        <a class="btn  btn-default" href="/Home/About">About</a>
-                        <a class="btn  btn-default" href="/Home/Contact">Contact</a>
-                        <a class="btn  btn-default" href="/Track/Index">Tracks</a>
+                        <a class="btn  btn-lg" href="/Home/Index">Home</a>
+                        <a class="btn  btn-lg" href="/Home/About">About</a>
+                        <a class="btn  btn-lg" href="/Home/Contact">Contact</a>
+                        <a class="btn  btn-lg" href="/Track/Index">Tracks</a>
 
-                        <a class="btn dropdown-toggle btn-default" data-toggle="dropdown" href="#">
-                            Drop Down <span class="caret"></span>
-                        </a>
-                        <ul class="pull-right dropdown-menu">
-                            <li><a href="/Home/About">About</a></li>
-                            <li><a href="/Home/Contact">Contact</a></li>
-                        </ul>
                     </div>
                 </div>
-
-            <ul class="nav nav-pills">
-                <li><a href="/Home/Index">Index</a></li>
-                <li><a href="/Home/About">About</a></li>
-                <li><a href="#">External Link</a></li>
-            </ul>
         </header>
         <div id="body"  >
             <div class="content-wrapper">
 
                 @RenderSection("featured", required: false)
-                <section class="content-wrapper main-content clear-fix">
+                <section class="content-wrapper main-content clear-fix table-bordered">
                     @RenderBody()
                 </section>
             </div>
