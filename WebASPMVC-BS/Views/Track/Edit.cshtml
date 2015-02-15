@@ -6,35 +6,43 @@
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>TRACK</legend>
+    <table table table-striped table-hove>
+      
+        <thead class="info">
+            <tr>
+                <td class="editor-label">
+                    @Html.LabelFor(model => model.name)
+                </td>
+                <td class="editor-label">
+                    @Html.LabelFor(model => model.description)
+                </td>
+            </tr>
 
-        @Html.HiddenFor(model => model.id)
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.name)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.name)
-            @Html.ValidationMessageFor(model => model.name)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.description)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.description)
-            @Html.ValidationMessageFor(model => model.description)
-        </div>
-
-        <p>
-            <input type="submit" value="Save" />
-        </p>
-    </fieldset>
+        </thead>
+        <tbody>
+            <tr>
+                <panel class="info">
+                    <td class="editor-field">
+                        @Html.EditorFor(model => model.name)
+                        @Html.ValidationMessageFor(model => model.name)
+                    </td>
+                    <td class="editor-field">
+                        @Html.EditorFor(model => model.description)
+                        @Html.ValidationMessageFor(model => model.description)
+                    </td>
+                    <td>
+                        <input type="submit" value="Save" />
+                    </td>
+                </panel>
+            </tr>
+        </tbody>
+        
+    </table>
 }
 
 <div>
