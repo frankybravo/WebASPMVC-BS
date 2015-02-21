@@ -14,7 +14,7 @@ namespace WebASPMVC_BS.FirstDBModel
         // 
         // System.Data.Entity.Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseIfModelChanges<WebASPMVC_BS.FirstDBModel.Context>());
 
-        public Context() : base("name=Context")
+        public Context() : base("name=FirstDBEntities")
         {
         }
 

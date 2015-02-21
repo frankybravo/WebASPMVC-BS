@@ -10,7 +10,7 @@ namespace WebASPMVC_BS.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Viewbag content.";
+            ViewBag.Message = ".";
 
             return View();
         }
