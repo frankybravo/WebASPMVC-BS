@@ -1,100 +1,92 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head >
+<head>
     <meta charset="utf-8" />
     <title>@ViewBag.Title - Bootstrap</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<side>
 
-
-</side>
-<body>
-
-    <!-- <a class="brand" href="#">Title</a>
-            <ul class="nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-            </ul>
-        </div>
-    </div>-->
+<body  >
+   
     <header>
-        <div class="navbar navbar-inverse">
+        <div class="navbar nav-header">
             <div class="navbar-inner">
 
                 <ul class="nav nav-tabs">
                     <li>
-                        <a class="btn btn-group-xs" href="/Home/Index">
+                        <a class="btn btn-group" href="/Home/Index">
                             <span class="glyphicon glyphicon-home"></span> Home
                         </a>
                     </li>
+
                     <li class="divider-vertical"></li>
-                  
+
                     <li>
-                        <a class="btn btn-group-xs" href="/Home/Contact">
+                        <a class="btn btn-group" href="/Home/Contact">
                             <span class="glyphicon glyphicon-phone"></span> Contact
                         </a>
 
                     </li>
-                  
+
                     <li>
-                        <a class="btn btn-group-xs" href="/Track/Index">
+                        <a class="btn btn-group" href="/Track/Index">
                             <span class="glyphicon glyphicon-headphones"></span> Tracks
                         </a>
                     </li>
                     <li>
-                        <form class="navbar-form pull-left">
-                            <input type="text" class="span2">
-                            <button type="submit" class="btn">Submit</button>
-                        </form>
+                        <a class="btn btn-group" href="/Track/IndexCarousel">
+                            <span class="glyphicon glyphicon-headphones"></span> Carousel
+                        </a>
                     </li>
+
                     <li class="right">
-                        <a class="btn btn-group-xs" href="/Home/About">
+                        <a class="btn btn-group" href="/Home/About">
                             <span class="glyphicon glyphicon-question-sign"></span>
-                                About
-                            
+                            About
+
                         </a>
                     </li>
 
                 </ul>
-                <div class="content-wrapper">
-                    <div class="navbar-collapse">
 
-                        <!--<a href="#" class="btn btn-info btn-lg">
-                            <span class="glyphicon glyphicon-search"></span> Search
-                        </a>-->
-
-                    </div>
-                </div>
             </div>
         </div>
 
     </header>
-    <div id="body">
-        <div class="content-wrapper">
-
-            @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix table-bordered">
-                @RenderBody()
 
 
-            </section>
-        </div>
+    <div id="body" class="content-wrapper">
+
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix table-bordered">
+            @RenderBody()
+
+
+        </section>
+
     </div>
 
     <footer>
         <div class="content-wrapper">
             <div class="float-left">
-                <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+                <p>&copy; @DateTime.Now.Year - @ViewData.GetViewDataInfo("FooterText")</p>
             </div>
         </div>
     </footer>
 
     @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/bundles/bootstrap")
+
     @RenderSection("scripts", required: false)
+
+
 </body>
 </html>
+
+
+

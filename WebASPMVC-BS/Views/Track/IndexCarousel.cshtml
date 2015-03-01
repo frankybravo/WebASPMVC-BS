@@ -1,0 +1,39 @@
+﻿@model IEnumerable<WebASPMVC_BS.Models.TRACK>
+<context>
+    <div class="carousel slide" id="carousel-219329" >
+
+        <div class="carousel-inner" >
+
+            <ol class="carousel-indicators">
+                <li data-slide-to="0" data-target="#carousel-219329" class="active"></li>
+                <li data-slide-to="1" data-target="#carousel-219329" class=""></li>
+                <li data-slide-to="2" data-target="#carousel-219329" class=""></li>
+            </ol>
+            <div class="item active">
+                <img alt="" src="~/Content/bc-1.jpg" width="1600" height="500" />
+                <div class="carousel-caption">
+                    <h1>one </h1>
+                    <p> 1</p>
+                </div>
+            </div>
+            @foreach (var item in Model)
+            {
+                <div class="item">
+                    <img alt="" class="icon-align-center" src="~/Content/qn-1.jpg" width="1600" height="500" />
+                    <div class="carousel-caption">
+                        <h1>@Html.DisplayFor(modelItem => item.name)</h1>
+                        <p> @Html.DisplayFor(modelItem => item.description)</p>
+                    </div>
+                </div>
+
+            }
+        </div>
+
+        <a class="left carousel-control" href="#carousel-219329" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="##carousel-219329" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+
+    </div>
+
+
+
+</context>
