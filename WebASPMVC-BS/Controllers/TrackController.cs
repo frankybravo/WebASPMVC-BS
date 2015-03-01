@@ -22,6 +22,11 @@ namespace WebASPMVC_BS.Controllers
             return View(db.TRACKs.ToList());
         }
 
+        public ActionResult IndexCarousel()
+        {
+            return View(db.TRACKs.ToList());
+        }
+
         //
         // GET: /Track/Details/5
 
