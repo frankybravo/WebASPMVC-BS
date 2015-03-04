@@ -5,33 +5,26 @@
     <title>@ViewBag.Title - Bootstrap</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
-
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
+<body>
 
-<body  >
-   
     <header>
         <div class="navbar nav-header">
             <div class="navbar-inner">
-
                 <ul class="nav nav-tabs">
                     <li>
                         <a class="btn btn-group" href="/Home/Index">
                             <span class="glyphicon glyphicon-home"></span> Home
                         </a>
                     </li>
-
                     <li class="divider-vertical"></li>
-
                     <li>
                         <a class="btn btn-group" href="/Home/Contact">
                             <span class="glyphicon glyphicon-phone"></span> Contact
                         </a>
-
                     </li>
-
                     <li>
                         <a class="btn btn-group" href="/Track/Index">
                             <span class="glyphicon glyphicon-headphones"></span> Tracks
@@ -42,7 +35,6 @@
                             <span class="glyphicon glyphicon-headphones"></span> Carousel
                         </a>
                     </li>
-
                     <li class="right">
                         <a class="btn btn-group" href="/Home/About">
                             <span class="glyphicon glyphicon-question-sign"></span>
@@ -50,26 +42,18 @@
 
                         </a>
                     </li>
-
                 </ul>
-
             </div>
         </div>
-
     </header>
 
-
     <div id="body" class="content-wrapper">
-
         @RenderSection("featured", required: false)
         <section class="content-wrapper main-content clear-fix table-bordered">
             @RenderBody()
 
-
         </section>
-
     </div>
-
     <footer>
         <div class="content-wrapper">
             <div class="float-left">
@@ -79,14 +63,9 @@
     </footer>
 
     @Scripts.Render("~/bundles/jquery")
-
     @Scripts.Render("~/bundles/bootstrap")
-
     @RenderSection("scripts", required: false)
-
 
 </body>
 </html>
-
-
 

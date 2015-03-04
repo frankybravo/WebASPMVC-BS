@@ -57,6 +57,14 @@ namespace WebASPMVC_BS.Controllers
         {
             if (ModelState.IsValid)
             {
+                int new_id = 0;
+                if (db.TRACKs.Any())
+                {
+                    new_id = db.TRACKs.Max(TRACK => TRACK.id) + 1;
+                
+                }
+                track.id = new_id;
+                
                 db.TRACKs.Add(track);
                 db.SaveChanges();
                 return RedirectToAction("Index");
