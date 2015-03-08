@@ -10,6 +10,6 @@ namespace WebASPMVC_BS.Models
         public HomeModel() { footerText = "RolloRama Productions."; }
 
         public string footerText { get; set; }
-        public int headerText { get; set; }
+        public string headerText { get; set; }
     }
 }
