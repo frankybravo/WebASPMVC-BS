@@ -1,5 +1,4 @@
-﻿@model IEnumerable<WebASPMVC_BS.Models.TRACK>
-
+﻿
 
 @{
     ViewBag.Title = "Home Page";
@@ -15,90 +14,90 @@
             }))
 {
     <input type="search" name="search" />
-    <input type="search" name="search" />
-    <input type="submit" name="submit2" />
+    <input type="submit" name="submit" />
 }
 
-@Html.Partial("_searchList",Model)
 
+<div class="row clearfix">
+    <div class="col-md-2 column">
+        @Html.Partial("About")
+    </div>
+    <div class="col-md-6 column">
 
-@section featured {
-    <section class="featured">
-        
-       
+        <section class="featured">
 
-        
-        <div class="tabbable" id="tabs-790407">
-            <!-- Only required for left/right tabs -->
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#panel-378646" data-toggle="tab" contenteditable="false">Cast</a></li>
-                <li><a href="#panel-599356" data-toggle="tab" contenteditable="true">Films</a></li>
-            </ul>
-            <div class="tab-content">
-                <div class="tab-pane active" id="panel-378646">
-                    <div class="carousel slide" id="indexCarousel">
+           
+                        <div class="carousel slide" id="indexCarousel">
 
-                        <div class="carousel-inner">
-                            <ol class="carousel-indicators">
-                                <li data-slide-to="0" data-target="#indexCarousel" class="active"></li>
-                                <li data-slide-to="1" data-target="#indexCarousel" class=""></li>
-                                <li data-slide-to="2" data-target="#indexCarousel" class=""></li>
-                                <li data-slide-to="3" data-target="#indexCarousel" class=""></li>
-                            </ol>
-                            <div class="item active">
-                                <img alt="" src="~/Content/kr-2.png" />
-                                <div class="carousel-caption">
-                                    <h1>King Rollo</h1>
-                                    <h2>
-                                        King Rollo is the self proclaimed ruler of Rolloland.
+                            <div class="carousel-inner">
+                                <ol class="carousel-indicators">
+                                    <li data-slide-to="0" data-target="#indexCarousel" class="active"></li>
+                                    <li data-slide-to="1" data-target="#indexCarousel" class=""></li>
+                                    <li data-slide-to="2" data-target="#indexCarousel" class=""></li>
+                                    <li data-slide-to="3" data-target="#indexCarousel" class=""></li>
+                                </ol>
+                                <div class="item active">
+                                    <img alt="" src="~/Content/kr-2.png" />
+                                    <div class="carousel-caption">
+                                        <h1>King Rollo</h1>
+                                        <h2>
+                                            King Rollo is the self proclaimed ruler of Rolloland.
 
-                                        Likes:
-                                        Ruling over the subjects(being bossy).
-                                        Owning lots of gold.
-                                        Talking.
+                                            Likes:
+                                            Ruling over the subjects(being bossy).
+                                            Owning lots of gold.
+                                            Talking.
 
-                                        Dislikes:
-                                    </h2>
+                                            Dislikes:
+                                        </h2>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <img alt="" class="icon-align-center" src="~/Content/qn-1.png" />
-                                <div class="carousel-caption">
-                                    <h1>Queenie</h1>
-                                    <p> </p>
+                                <div class="item">
+                                    <img alt="" class="icon-align-center" src="~/Content/qn-1.png" />
+                                    <div class="carousel-caption">
+                                        <h1>Queenie</h1>
+                                        <p> </p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <img alt="" class="icon-align-center" src="~/Content/bc-1.png" />
-                                <div class="carousel-caption">
-                                    <h1>Baddy Cool</h1>
-                                    <p> </p>
+                                <div class="item">
+                                    <img alt="" class="icon-align-center" src="~/Content/bc-1.png" />
+                                    <div class="carousel-caption">
+                                        <h1>Baddy Cool</h1>
+                                        <p> </p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <img alt="" class="icon-align-center" src="~/Content/dh-1.png" />
-                                <div class="carousel-caption">
-                                    <h1>Dessert Horses</h1>
-                                    <p> </p>
+                                <div class="item">
+                                    <img alt="" class="icon-align-center" src="~/Content/dh-1.png" />
+                                    <div class="carousel-caption">
+                                        <h1>Dessert Horses</h1>
+                                        <p> </p>
+                                    </div>
                                 </div>
+
+
                             </div>
 
+                            <a class="left carousel-control" href="#indexCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                            <a class="right carousel-control" href="#indexCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
 
                         </div>
 
-                        <a class="left carousel-control" href="#indexCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-                        <a class="right carousel-control" href="#indexCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                    
+           
+        </section>
 
-                    </div>
+    </div>
+    <div class="col-md-4 column">
+        @Html.Partial("_searchList")
 
-                </div>
-                <div class="tab-pane" id="panel-599356">
-                    <p contenteditable="true">Howdy, I'm in Section 2.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-}
+
+    </div>
+</div>
+
+
+
+
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
