@@ -7,87 +7,116 @@
     <meta name="viewport" content="width=device-width" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-</head>
-<body>
-
-    <header>
-        <div class="navbar navbar-left">
-            <div class="navbar-inner">
-                <ul class="nav navbar-left">
-                    <li>
-                        <a class="btn btn-group" href="/User/Create">
-                            <span class="glyphicon glyphicon-user large"></span> Account
-                        </a>
-                    </li>
-                    <li>
-                        <a class="btn btn-group" href="/Home/Index">
-                            <span class="glyphicon glyphicon-home"></span> Home
-                        </a>
-                    </li>
-                    <li class="divider-vertical"></li>
-                    <li>
-                        <a class="btn btn-group" href="/Home/Contact">
-                            <span class="glyphicon glyphicon-phone"></span> Contact
-                        </a>
-                    </li>
-                   
-                    <li class="right">
-                        <a class="btn btn-group" href="/Home/About">
-                            <span class="glyphicon glyphicon-question-sign"></span>
-                            About
-
-                        </a>
-                    </li>
-                   
-
-                    <li>
-                        <a class="btn btn-group" href="/Item/Create">
-                            <span class="glyphicon glyphicon-gift"></span> Add Item
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="btn btn-group" href="/Item/Index">
-                            <span class="glyphicon glyphicon-gift"></span> Your Items
-                        </a>
-                    </li>
-                    <li>
-                        <a class="btn btn-group" href="/Swap/Create">
-                            <span class="glyphicon glyphicon-ban-circle"></span> New Swap
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="btn btn-group" href="/Swap/Index">
-                            <span class="glyphicon glyphicon-ban-circle"></span> Your Swaps
-                        </a>
-                    </li>
-
-
-                </ul>
-            </div>
-        </div>
-    </header>
-
-    <div id="body" class="content-wrapper">
-        @RenderSection("featured", required: false)
-        <section class="content-wrapper main-content clear-fix table-bordered">
-            @RenderBody()
-
-        </section>
-    </div>
-    <footer>
-        <div class="content-wrapper">
-            <div class="float-left">
-                <p>&copy; @DateTime.Now.Year - @ViewData.GetViewDataInfo("FooterText")</p>
-            </div>
-        </div>
-    </footer>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    @RenderSection("featured", required: false)
 
+
+</head>
+<body>
+    <container>
+        <header>
+            <p>
+                Heading
+            </p>
+
+        </header>
+       
+
+
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <h1 contenteditable="false">Heading</h1>
+
+                    </div>
+            </div>
+
+            <div class="row clearfix">
+                <div class="col-md-2 column">
+                            <div class="navbar navbar-left">
+                                <div class="navbar-inner">
+                                    <ul class="nav navbar-left">
+                                        <li>
+                                            <a class="btn btn-group" href="/User/Create">
+                                                Account
+                                                <span class="glyphicon glyphicon-user large"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-group" href="/Home/Index">
+                                                Home
+                                                <span class="glyphicon glyphicon-home"></span>
+                                            </a>
+                                        </li>
+                                        <li class="divider-vertical"></li>
+                                        <li>
+                                            <a class="btn btn-group" href="/Home/Contact">
+                                                Contact
+                                                <span class="glyphicon glyphicon-phone"></span>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a class="btn btn-group" href="/Home/About">
+                                                About
+                                                <span class="glyphicon glyphicon-question-sign"></span>
+
+
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-group" href="/Item/Create">
+                                                Add Item
+                                                <span class="glyphicon glyphicon-gift"></span>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a class="btn btn-group" href="/Item/Index">
+                                                Your Items
+                                                <span class="glyphicon glyphicon-gift"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-group" href="/Swap/Create">
+                                                New Swap
+                                                <span class="glyphicon glyphicon-ban-circle"></span>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a class="btn btn-group" href="/Swap/Index">
+                                                Your Swaps
+                                                <span class="glyphicon glyphicon-ban-circle"></span>
+                                            </a>
+                                        </li>
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                    
+                </div>
+                <div class="col-md-10 column">
+                    <div id="body" class="content-wrapper">
+                        <p>
+                            @RenderBody()
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+                <footer>
+                    <div class="content-wrapper">
+                        <div class="float-left">
+                        </div>
+                    </div>
+                </footer>
+</container>
 </body>
 </html>
-
