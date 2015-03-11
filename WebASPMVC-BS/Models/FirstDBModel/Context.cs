@@ -19,5 +19,10 @@ namespace WebASPMVC_BS.FirstDBModel
         }
 
         public DbSet<TRACK> TRACKs { get; set; }
+        public DbSet<USER> USERs { get; set; }
+        public DbSet<ITEM> ITEMs { get; set; }
+
+        public DbSet<SWAP> SWAPs { get; set; }
+
     }
 }

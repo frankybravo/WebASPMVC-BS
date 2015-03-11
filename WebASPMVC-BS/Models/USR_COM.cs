@@ -12,10 +12,13 @@ namespace WebASPMVC_BS.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TRACK
+    public partial class USR_COM
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string description { get; set; }
+        public int id_item { get; set; }
+        public int id_swp { get; set; }
+        public Nullable<int> id_usr_from { get; set; }
+        public Nullable<int> id_usr_to { get; set; }
+        public Nullable<System.DateTime> dt_sent { get; set; }
+        public string tx_message { get; set; }
     }
 }

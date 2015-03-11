@@ -12,10 +12,15 @@ namespace WebASPMVC_BS.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TRACK
+    public partial class ITEM
     {
         public int id { get; set; }
-        public string name { get; set; }
-        public string description { get; set; }
+
+        public int id_orig_owner { get; set; }
+       
+        public string dscr_short { get; set; }
+        public string dscr_full { get; set; }
+        public string typ_condition { get; set; }
+        public byte[] blb_img { get; set; }
     }
 }

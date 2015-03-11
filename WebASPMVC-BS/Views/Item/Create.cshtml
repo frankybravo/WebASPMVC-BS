@@ -1,0 +1,60 @@
+﻿@model WebASPMVC_BS.Models.ITEM
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ITEM</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.id_orig_owner)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.id_orig_owner)
+            @Html.ValidationMessageFor(model => model.id_orig_owner)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.dscr_short)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.dscr_short)
+            @Html.ValidationMessageFor(model => model.dscr_short)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.dscr_full)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.dscr_full)
+            @Html.ValidationMessageFor(model => model.dscr_full)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.typ_condition)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.typ_condition)
+            @Html.ValidationMessageFor(model => model.typ_condition)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

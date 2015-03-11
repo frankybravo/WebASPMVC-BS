@@ -1,0 +1,47 @@
+﻿@model WebASPMVC_BS.Models.ITEM
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>ITEM</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_orig_owner)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_orig_owner)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.dscr_short)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dscr_short)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.dscr_full)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dscr_full)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.typ_condition)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.typ_condition)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

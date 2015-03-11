@@ -12,10 +12,14 @@ namespace WebASPMVC_BS.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TRACK
+    public partial class FEEDBACK
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string description { get; set; }
+        public int id_usr_fbk_prov { get; set; }
+        public Nullable<int> id_usr_fbk_rec { get; set; }
+        public Nullable<int> id_item { get; set; }
+        public Nullable<int> id_swap { get; set; }
+        public string id_blocked { get; set; }
+        public string am_rating { get; set; }
+        public string tx_feedback { get; set; }
     }
 }

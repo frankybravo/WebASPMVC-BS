@@ -30,6 +30,11 @@ namespace WebASPMVC_BS.Models
     
         public DbSet<TRACK> TRACKs { get; set; }
         public DbSet<USER> USERS { get; set; }
+        public DbSet<ITEM> ITEMs { get; set; }
+        public DbSet<SWAP> SWAPs { get; set; }
+        public DbSet<USR_COM> USR_COM { get; set; }
+        public DbSet<FEEDBACK> FEEDBACKs { get; set; }
+        public DbSet<ITEM_IMG> ITEM_IMG { get; set; }
     
         public virtual int delete_track(Nullable<int> in_id)
         {

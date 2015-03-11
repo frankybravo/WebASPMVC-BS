@@ -16,6 +16,8 @@ namespace WebASPMVC_BS.Models
         }
 
         public DbSet<UserProfile> UserProfiles { get; set; }
+
+        public DbSet<USER> USERs { get; set; }
     }
 
     [Table("UserProfile")]

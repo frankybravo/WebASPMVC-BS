@@ -12,10 +12,14 @@ namespace WebASPMVC_BS.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TRACK
+    public partial class SWAP
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string description { get; set; }
+        public long id { get; set; }
+        public Nullable<int> id_usr_offer { get; set; }
+        public Nullable<int> id_item_offered { get; set; }
+        public Nullable<int> id_usr_agreed { get; set; }
+        public Nullable<int> id_item_agreed { get; set; }
+        public string id_swp_status { get; set; }
+        public string tx_notes { get; set; }
     }
 }

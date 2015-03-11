@@ -4,7 +4,50 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FirstDBModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FirstDBModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FEEDBACK">
+          <Key>
+            <PropertyRef Name="id_usr_fbk_prov" />
+          </Key>
+          <Property Name="id_usr_fbk_prov" Type="int" Nullable="false" />
+          <Property Name="id_usr_fbk_rec" Type="int" />
+          <Property Name="id_item" Type="int" />
+          <Property Name="id_swap" Type="int" />
+          <Property Name="id_blocked" Type="char" MaxLength="4" />
+          <Property Name="am_rating" Type="varchar" MaxLength="45" />
+          <Property Name="tx_feedback" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="ITEM">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_orig_owner" Type="int" Nullable="false" />
+          <Property Name="dscr_short" Type="varchar" MaxLength="45" />
+          <Property Name="dscr_full" Type="varchar" MaxLength="200" />
+          <Property Name="typ_condition" Type="char" MaxLength="10" />
+          <Property Name="blb_img" Type="blob" />
+        </EntityType>
+        <EntityType Name="ITEM_IMG">
+          <Key>
+            <PropertyRef Name="id_item" />
+          </Key>
+          <Property Name="id_item" Type="int" Nullable="false" />
+          <Property Name="id_img" Type="int" />
+          <Property Name="blob_img" Type="blob" />
+        </EntityType>
+        <EntityType Name="SWAP">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_usr_offer" Type="int" />
+          <Property Name="id_item_offered" Type="int" />
+          <Property Name="id_usr_agreed" Type="int" />
+          <Property Name="id_item_agreed" Type="int" />
+          <Property Name="id_swp_status" Type="char" MaxLength="4" />
+          <Property Name="tx_notes" Type="varchar" MaxLength="45" />
+        </EntityType>
         <EntityType Name="TRACK">
           <Key>
             <PropertyRef Name="id" />
@@ -17,8 +60,28 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="45" />
+          <Property Name="password" Type="varchar" MaxLength="25" />
+          <Property Name="first_name" Type="varchar" MaxLength="45" />
+          <Property Name="last_name" Type="varchar" MaxLength="45" />
+          <Property Name="email_addr_1" Type="varchar" MaxLength="45" />
+          <Property Name="email_addr_2" Type="varchar" MaxLength="45" />
+          <Property Name="shipping_address" Type="varchar" MaxLength="100" />
+          <Property Name="account_status" Type="char" MaxLength="4" />
+          <Property Name="usr_lvl" Type="char" MaxLength="4" />
+        </EntityType>
+        <EntityType Name="USR_COM">
+          <Key>
+            <PropertyRef Name="id_item" />
+            <PropertyRef Name="id_swp" />
+          </Key>
+          <Property Name="id_item" Type="int" Nullable="false" />
+          <Property Name="id_swp" Type="int" Nullable="false" />
+          <Property Name="id_usr_from" Type="int" />
+          <Property Name="id_usr_to" Type="int" />
+          <Property Name="dt_sent" Type="datetime" Precision="0" />
+          <Property Name="tx_message" Type="varchar" MaxLength="45" />
         </EntityType>
         <Function Name="delete_track" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="firstdb">
           <Parameter Name="in_id" Type="int" Mode="In" />
@@ -32,11 +95,15 @@
           <Parameter Name="in_description" Type="varchar" Mode="In" />
         </Function>
         <EntityContainer Name="FirstDBModelStoreContainer">
+          <EntitySet Name="FEEDBACK" EntityType="Self.FEEDBACK" Schema="firstdb" store:Type="Tables" />
+          <EntitySet Name="ITEM" EntityType="Self.ITEM" Schema="firstdb" store:Type="Tables" />
+          <EntitySet Name="ITEM_IMG" EntityType="Self.ITEM_IMG" Schema="firstdb" store:Type="Tables" />
+          <EntitySet Name="SWAP" EntityType="Self.SWAP" Schema="firstdb" store:Type="Tables" />
           <EntitySet Name="TRACK" EntityType="Self.TRACK" Schema="firstdb" store:Type="Tables" />
           <EntitySet Name="USERS" EntityType="Self.USERS" Schema="firstdb" store:Type="Tables" />
+          <EntitySet Name="USR_COM" EntityType="Self.USR_COM" Schema="firstdb" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FirstDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -54,22 +121,90 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="first_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="email_addr_1" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="email_addr_2" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="shipping_address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="account_status" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="usr_lvl" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="FirstDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="TRACKs" EntityType="Self.TRACK" />
           <EntitySet Name="USERS" EntityType="Self.USER" />
           <FunctionImport Name="delete_track">
-            <Parameter Name="in_id" Mode="In" Type="Int32" />
+          <Parameter Name="in_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="fetch_tracks">
-            <Parameter Name="in_id" Mode="In" Type="Int32" />
+          <Parameter Name="in_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="insert_track">
             <Parameter Name="in_id" Mode="In" Type="Int32" />
             <Parameter Name="in_name" Mode="In" Type="String" />
             <Parameter Name="in_description" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="ITEMs" EntityType="FirstDBModel.ITEM" />
+          <EntitySet Name="SWAPs" EntityType="FirstDBModel.SWAP" />
+          <EntitySet Name="USR_COM" EntityType="FirstDBModel.USR_COM" />
+          <EntitySet Name="FEEDBACKs" EntityType="FirstDBModel.FEEDBACK" />
+          <EntitySet Name="ITEM_IMG" EntityType="FirstDBModel.ITEM_IMG" />
         </EntityContainer>
+        <EntityType Name="ITEM">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_orig_owner" Type="Int32" Nullable="false" />
+          <Property Name="dscr_short" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="dscr_full" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="typ_condition" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="blb_img" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SWAP">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_usr_offer" Type="Int32" />
+          <Property Name="id_item_offered" Type="Int32" />
+          <Property Name="id_usr_agreed" Type="Int32" />
+          <Property Name="id_item_agreed" Type="Int32" />
+          <Property Name="id_swp_status" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="tx_notes" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="USR_COM">
+          <Key>
+            <PropertyRef Name="id_item" />
+            <PropertyRef Name="id_swp" />
+          </Key>
+          <Property Name="id_item" Type="Int32" Nullable="false" />
+          <Property Name="id_swp" Type="Int32" Nullable="false" />
+          <Property Name="id_usr_from" Type="Int32" />
+          <Property Name="id_usr_to" Type="Int32" />
+          <Property Name="dt_sent" Type="DateTime" />
+          <Property Name="tx_message" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="FEEDBACK">
+          <Key>
+            <PropertyRef Name="id_usr_fbk_prov" />
+          </Key>
+          <Property Name="id_usr_fbk_prov" Type="Int32" Nullable="false" />
+          <Property Name="id_usr_fbk_rec" Type="Int32" />
+          <Property Name="id_item" Type="Int32" />
+          <Property Name="id_swap" Type="Int32" />
+          <Property Name="id_blocked" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="am_rating" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="tx_feedback" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ITEM_IMG">
+          <Key>
+            <PropertyRef Name="id_item" />
+          </Key>
+          <Property Name="id_item" Type="Int32" Nullable="false" />
+          <Property Name="id_img" Type="Int32" />
+          <Property Name="blob_img" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -88,6 +223,14 @@
           <EntitySetMapping Name="USERS">
             <EntityTypeMapping TypeName="FirstDBModel.USER">
               <MappingFragment StoreEntitySet="USERS">
+                <ScalarProperty Name="usr_lvl" ColumnName="usr_lvl" />
+                <ScalarProperty Name="account_status" ColumnName="account_status" />
+                <ScalarProperty Name="shipping_address" ColumnName="shipping_address" />
+                <ScalarProperty Name="email_addr_2" ColumnName="email_addr_2" />
+                <ScalarProperty Name="email_addr_1" ColumnName="email_addr_1" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
@@ -96,6 +239,65 @@
           <FunctionImportMapping FunctionImportName="delete_track" FunctionName="FirstDBModel.Store.delete_track" />
           <FunctionImportMapping FunctionImportName="fetch_tracks" FunctionName="FirstDBModel.Store.fetch_tracks" />
           <FunctionImportMapping FunctionImportName="insert_track" FunctionName="FirstDBModel.Store.insert_track" />
+          <EntitySetMapping Name="ITEMs">
+            <EntityTypeMapping TypeName="FirstDBModel.ITEM">
+              <MappingFragment StoreEntitySet="ITEM">
+                <ScalarProperty Name="blb_img" ColumnName="blb_img" />
+                <ScalarProperty Name="typ_condition" ColumnName="typ_condition" />
+                <ScalarProperty Name="dscr_full" ColumnName="dscr_full" />
+                <ScalarProperty Name="dscr_short" ColumnName="dscr_short" />
+                <ScalarProperty Name="id_orig_owner" ColumnName="id_orig_owner" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SWAPs">
+            <EntityTypeMapping TypeName="FirstDBModel.SWAP">
+              <MappingFragment StoreEntitySet="SWAP">
+                <ScalarProperty Name="tx_notes" ColumnName="tx_notes" />
+                <ScalarProperty Name="id_swp_status" ColumnName="id_swp_status" />
+                <ScalarProperty Name="id_item_agreed" ColumnName="id_item_agreed" />
+                <ScalarProperty Name="id_usr_agreed" ColumnName="id_usr_agreed" />
+                <ScalarProperty Name="id_item_offered" ColumnName="id_item_offered" />
+                <ScalarProperty Name="id_usr_offer" ColumnName="id_usr_offer" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USR_COM">
+            <EntityTypeMapping TypeName="FirstDBModel.USR_COM">
+              <MappingFragment StoreEntitySet="USR_COM">
+                <ScalarProperty Name="tx_message" ColumnName="tx_message" />
+                <ScalarProperty Name="dt_sent" ColumnName="dt_sent" />
+                <ScalarProperty Name="id_usr_to" ColumnName="id_usr_to" />
+                <ScalarProperty Name="id_usr_from" ColumnName="id_usr_from" />
+                <ScalarProperty Name="id_swp" ColumnName="id_swp" />
+                <ScalarProperty Name="id_item" ColumnName="id_item" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FEEDBACKs">
+            <EntityTypeMapping TypeName="FirstDBModel.FEEDBACK">
+              <MappingFragment StoreEntitySet="FEEDBACK">
+                <ScalarProperty Name="tx_feedback" ColumnName="tx_feedback" />
+                <ScalarProperty Name="am_rating" ColumnName="am_rating" />
+                <ScalarProperty Name="id_blocked" ColumnName="id_blocked" />
+                <ScalarProperty Name="id_swap" ColumnName="id_swap" />
+                <ScalarProperty Name="id_item" ColumnName="id_item" />
+                <ScalarProperty Name="id_usr_fbk_rec" ColumnName="id_usr_fbk_rec" />
+                <ScalarProperty Name="id_usr_fbk_prov" ColumnName="id_usr_fbk_prov" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ITEM_IMG">
+            <EntityTypeMapping TypeName="FirstDBModel.ITEM_IMG">
+              <MappingFragment StoreEntitySet="ITEM_IMG">
+                <ScalarProperty Name="blob_img" ColumnName="blob_img" />
+                <ScalarProperty Name="id_img" ColumnName="id_img" />
+                <ScalarProperty Name="id_item" ColumnName="id_item" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -110,8 +312,8 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="UseLegacyProvider" Value="true" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
