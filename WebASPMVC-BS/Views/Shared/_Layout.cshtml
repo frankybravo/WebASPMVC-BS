@@ -4,68 +4,95 @@
     <meta charset="utf-8" />
     <title>@ViewBag.Title - Bootstrap</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <meta name="viewport" content="width=device-width" />
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <!--<meta name="viewport" content="width=device-width" />
+
+    -->
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+        @Scripts.Render("~/bundles/modernizr")
+
+     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/bootstrap")
+
+
+   
+    <!--  <link href="~/Content/Site.css" rel="stylesheet">
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+   
+         <script type="text/javascript" src="~/Scripts/jquery-1.9.0.js"></script>
+
+     <script type="text/javascript" src="~/Scrpts/jquery.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+
+           -->
+   
+   
 </head>
 <body>
+    <container>
 
-    <header>
-        <div class="navbar nav-header">
-            <div class="navbar-inner">
-                <ul class="nav nav-tabs">
-                    <li>
-                        <a class="btn btn-group" href="/Home/Index">
-                            <span class="glyphicon glyphicon-home"></span> Home
-                        </a>
-                    </li>
-                    <li class="divider-vertical"></li>
-                    <li>
-                        <a class="btn btn-group" href="/Home/Contact">
-                            <span class="glyphicon glyphicon-phone"></span> Contact
-                        </a>
-                    </li>
-                    <li>
-                        <a class="btn btn-group" href="/Track/Index">
-                            <span class="glyphicon glyphicon-headphones"></span> Tracks
-                        </a>
-                    </li>
-                    <li>
-                        <a class="btn btn-group" href="/Track/IndexCarousel">
-                            <span class="glyphicon glyphicon-headphones"></span> Carousel
-                        </a>
-                    </li>
-                    <li class="right">
-                        <a class="btn btn-group" href="/Home/About">
-                            <span class="glyphicon glyphicon-question-sign"></span>
-                            About
+        <header>
 
-                        </a>
-                    </li>
-                </ul>
+
+
+            <div class="navbar nav-header">
+                <div class="navbar-inner">
+                    <ul class="nav nav-tabs">
+                        <li>
+                            <a class="btn btn-group" href="/Home/Index">
+                                <span class="glyphicon glyphicon-home"></span> Home
+                            </a>
+                        </li>
+                        <li class="divider-vertical"></li>
+                        <li>
+                            <a class="btn btn-group" href="/Home/Contact">
+                                <span class="glyphicon glyphicon-phone"></span> Contact
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn btn-group" href="/Track/Index">
+                                <span class="glyphicon glyphicon-headphones"></span> Tracks
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn btn-group" href="/Track/IndexCarousel">
+                                <span class="glyphicon glyphicon-headphones"></span> Carousel
+                            </a>
+                        </li>
+                        <li class="right">
+                            <a class="btn btn-group" href="/Home/About">
+                                <span class="glyphicon glyphicon-question-sign"></span>
+                                About
+
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
+        <div class="row clearfix">
 
-    <div id="body" class="content-wrapper">
-        @RenderSection("featured", required: false)
-        <section class="content-wrapper main-content clear-fix table-bordered">
-            @RenderBody()
+            <div id="body" class="content-wrapper">
+                @RenderSection("featured", required: false)
+                <section class="content-wrapper main-content clear-fix table-bordered">
+                    @RenderBody()
 
-        </section>
-    </div>
-    <footer>
-        <div class="content-wrapper">
-            <div class="float-left">
-                <p>&copy; @DateTime.Now.Year - @ViewData.GetViewDataInfo("FooterText")</p>
+                </section>
             </div>
+            <footer>
+                <div class="content-wrapper">
+                    <div class="float-left">
+                        <p>&copy; @DateTime.Now.Year - @ViewData.GetViewDataInfo("FooterText")</p>
+                    </div>
+                </div>
+            </footer>
+
+
+            @RenderSection("scripts", required: false)
         </div>
-    </footer>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-
+    </container>
 </body>
 </html>
 
