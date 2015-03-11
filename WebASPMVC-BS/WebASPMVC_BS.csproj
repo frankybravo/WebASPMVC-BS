@@ -430,7 +430,6 @@
     <Content Include="Views\SearchList\Create.cshtml" />
     <Content Include="Views\SearchList\Edit.cshtml" />
     <Content Include="Views\SearchList\Delete.cshtml" />
-    <Content Include="Views\Home\_SearchListMod.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -1,6 +1,9 @@
-﻿@{
+﻿
+
+@{
     ViewBag.Title = "Home Page";
 }
+
 
 @using (Ajax.BeginForm(
             new AjaxOptions
@@ -15,15 +18,12 @@
 }
 
 
-<div>
-    @Html.Partial("_searchListMod")
-</div>
-
 <div class="row clearfix">
     <div class="col-md-2 column">
-       
+        @Html.Partial("About")
     </div>
     <div class="col-md-6 column">
+
         <section class="featured">
 
            
@@ -85,20 +85,20 @@
                     
            
         </section>
+
     </div>
     <div class="col-md-4 column">
         @Html.Partial("_searchList")
+
+
     </div>
 </div>
 
 
-    
+
 
 
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-  
-
-
 }
