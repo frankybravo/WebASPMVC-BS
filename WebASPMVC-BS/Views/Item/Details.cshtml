@@ -9,33 +9,18 @@
 <fieldset>
     <legend>ITEM</legend>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.id_orig_owner)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.id_orig_owner)
-    </div>
+    <blockquote contenteditable="false">
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.dscr_short)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.dscr_short)
-    </div>
+        <span class="label label-primary" contenteditable="true">@Html.DisplayFor(model => model.dscr_short)</span>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.dscr_full)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.dscr_full)
-    </div>
+        <p> Full Description: @Html.DisplayFor(model => model.dscr_full)</p>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.typ_condition)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.typ_condition)
-    </div>
+        <small>
+            Condition:  @Html.DisplayFor(model => model.typ_condition)
+        </small>
+    
+    </blockquote>
+
 </fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
