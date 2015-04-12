@@ -8,21 +8,25 @@ namespace WebASPMVC_BS
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
+            //BundleTable.EnableOptimizations = true;
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                        "~/Scripts/bootstrap.js"));
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include("~/Scripts/bootstrap.js"));
 
-            
-            
+            bundles.Add(new ScriptBundle("~/bundles/metisMenu").Include("~/Scripts/metisMenu.js"));
+          
+            bundles.Add(new ScriptBundle("~/bundles/sb-admin2").Include("~/Scripts/sb-admin-2.js"));
+          
+           
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*"
                         
-                        /*,
+                 /*,
                         "~/Scripts/jquery.validate*"
                         */
                         ));
@@ -32,7 +36,17 @@ namespace WebASPMVC_BS
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/bootstrap.css"));
+            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/bootstrap.css"
+                , "~/Content/font-awesome.css"
+                , "~/Content/sb-admin-2.css",
+                "~/Content/metisMenu.css"));
+
+           // bundles.Add(new StyleBundle("~/Content/css").Include(""));
+   
+            //bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/sb-admin-2.css"));
+            
+
+
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",

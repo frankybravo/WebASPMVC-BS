@@ -122,8 +122,9 @@
     <Reference Include="T4MVCExtensions">
       <HintPath>..\packages\T4MVCExtensions.3.6.5\lib\net40\T4MVCExtensions.dll</HintPath>
     </Reference>
-    <Reference Include="TwitterBootstrapMVC4">
-      <HintPath>..\packages\TwitterBootstrapMVC.3.14.4\lib\net40\TwitterBootstrapMVC4.dll</HintPath>
+    <Reference Include="TwitterBootstrapMVC4, Version=3.14.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\TwitterBootstrapMVC.3.14.10\lib\net40\TwitterBootstrapMVC4.dll</HintPath>
     </Reference>
     <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -301,6 +302,10 @@
     <Content Include="Content\bootswatch\united\bootstrap-responsive.min.css" />
     <Content Include="Content\bootswatch\united\bootstrap.css" />
     <Content Include="Content\bootswatch\united\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\metisMenu.css" />
+    <Content Include="Content\sb-admin-2.css" />
+    <Content Include="Content\SideMenu.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -395,8 +400,11 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\metisMenu.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\sb-admin-2.js" />
     <Content Include="Scripts\TwitterBootstrapMvcJs.js" />
+    <Content Include="Scripts\_myJavaScript.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -463,6 +471,7 @@
     <Content Include="Views\Item\Create.cshtml" />
     <Content Include="Views\Item\Edit.cshtml" />
     <Content Include="Views\Item\Delete.cshtml" />
+    <Content Include="Views\Shared\sidebarPage.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

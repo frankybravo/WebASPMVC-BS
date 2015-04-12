@@ -11,46 +11,46 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>ITEM</legend>
-
         @Html.HiddenFor(model => model.id)
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.id_orig_owner)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.id_orig_owner)
-            @Html.ValidationMessageFor(model => model.id_orig_owner)
-        </div>
+        @Html.HiddenFor(model => model.id_orig_owner)
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.dscr_short)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.dscr_short)
-            @Html.ValidationMessageFor(model => model.dscr_short)
-        </div>
+        <blockquote contenteditable="false">
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.dscr_full)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.dscr_full)
-            @Html.ValidationMessageFor(model => model.dscr_full)
-        </div>
+            <p>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.typ_condition)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.typ_condition)
-            @Html.ValidationMessageFor(model => model.typ_condition)
-        </div>
+                <div class="editor-label">
+                    Short Description
+                </div>
+                <span class="label label-info" contenteditable="true">@Html.DisplayFor(model => model.dscr_short)</span>
 
-        <p>
-            <input type="submit" value="Save" />
-        </p>
-    </fieldset>
+            </p>
+            <p>
+                <div class="editor-label">
+                    Full Description
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.dscr_full, new { style = "align:left; width: 200px; height: 100px;" })
+                    @Html.ValidationMessageFor(model => model.dscr_full)
+                </div>
+
+            </p>
+            <p>
+                <div class="editor-label">
+                    Condition
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.typ_condition)
+                    @Html.ValidationMessageFor(model => model.typ_condition)
+                </div>
+
+            </p>
+            </blockquote>
+
+            <p>
+                <input type="submit" value="Save" />
+            </p>
+</fieldset>
 }
 
 <div>

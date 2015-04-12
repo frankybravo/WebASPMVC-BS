@@ -147,7 +147,15 @@
 
         $('[data-provide=typeahead]').each(function () {
             var self = $(this);
-            self.typeahead({
+
+            var items = self.attr('data-items');
+            var minLength = self.attr('data-minlength');
+            var matcher = self.attr('data-matcher');
+            var sorter = self.attr('data-sorter');
+            var updater = self.attr('data-updater');
+            var highlighter = self.attr('data-highlighter');
+
+            var typeaheadOptions = {
                 source: function (term, process) {
                     var url = self.data('url');
 
@@ -155,7 +163,16 @@
                         return process(data);
                     });
                 }
-            });
+            };
+
+            if (items) typeaheadOptions['items'] = items;
+            if (minLength) typeaheadOptions['minLength'] = minLength;
+            if (matcher) typeaheadOptions['matcher'] = function (item) { window[matcher](item); };
+            if (sorter) typeaheadOptions['sorter'] = function (items) { window[sorter](items); };
+            if (updater) typeaheadOptions['updater'] = function (item) { window[updater](item); };
+            if (highlighter) typeaheadOptions['highlighter'] = function (item) { window[highlighter](item); };
+
+            self.typeahead(typeaheadOptions);
         });
 
         $('[data-disabled-depends-on]').each(function () {
