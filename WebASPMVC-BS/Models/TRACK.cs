@@ -11,16 +11,11 @@ namespace WebASPMVC_BS.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class TRACK
     {
         public int id { get; set; }
-
-        [Display(Name = "User Name")]
         public string name { get; set; }
-
-        [Display(Name = "Description")]
         public string description { get; set; }
     }
 }
