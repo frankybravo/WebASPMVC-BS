@@ -28,7 +28,7 @@ namespace WebASPMVC_BS.Controllers
 
             ViewData.Add("FooterText", _homeModel.footerText);
 
-            if (Request.IsAjaxRequest())
+            if ((Request!=null) && Request.IsAjaxRequest())
             {
                 return PartialView("_SearchList");
             }
