@@ -5,88 +5,186 @@
     <title>@ViewBag.Title - Bootstrap</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
-
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-</head>
-
-<body  >
-   
-    <header>
-        <div class="navbar nav-header">
-            <div class="navbar-inner">
-
-                <ul class="nav nav-tabs">
-                    <li>
-                        <a class="btn btn-group" href="/Home/Index">
-                            <span class="glyphicon glyphicon-home"></span> Home
-                        </a>
-                    </li>
-
-                    <li class="divider-vertical"></li>
-
-                    <li>
-                        <a class="btn btn-group" href="/Home/Contact">
-                            <span class="glyphicon glyphicon-phone"></span> Contact
-                        </a>
-
-                    </li>
-
-                    <li>
-                        <a class="btn btn-group" href="/Track/Index">
-                            <span class="glyphicon glyphicon-headphones"></span> Tracks
-                        </a>
-                    </li>
-                    <li>
-                        <a class="btn btn-group" href="/Track/IndexCarousel">
-                            <span class="glyphicon glyphicon-headphones"></span> Carousel
-                        </a>
-                    </li>
-
-                    <li class="right">
-                        <a class="btn btn-group" href="/Home/About">
-                            <span class="glyphicon glyphicon-question-sign"></span>
-                            About
-
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-        </div>
-
-    </header>
-
-
-    <div id="body" class="content-wrapper">
-
-        @RenderSection("featured", required: false)
-        <section class="content-wrapper main-content clear-fix table-bordered">
-            @RenderBody()
-
-
-        </section>
-
-    </div>
-
-    <footer>
-        <div class="content-wrapper">
-            <div class="float-left">
-                <p>&copy; @DateTime.Now.Year - @ViewData.GetViewDataInfo("FooterText")</p>
-            </div>
-        </div>
-    </footer>
-
     @Scripts.Render("~/bundles/jquery")
-
     @Scripts.Render("~/bundles/bootstrap")
 
+    @Styles.Render("~/Content/SideMenu.css")
+    @Styles.Render("~/Content/bootstrap.css")
     @RenderSection("scripts", required: false)
+    @RenderSection("featured", required: false)
+
+</head>
+<body>
+    <script type="text/javascript"
+            src="~/Scripts/_myJavaScript.js"></script>
+
+    <container>
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/Home/Index">Home</a></li>
+                        <li><a href="/Item/Index">Your Items</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Nav header</li>
+                                <li><a href="#">Separated link</a></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+
+        <div id="wrapper">
+
+            <div id="sidebar-wrapper" class="col-md-2">
+                <div id="sidebar" class="backcolor-yell">
+                    <ul class="nav list-group">
+
+                        <li class="list-group-item">
+                            <a class="btn btn-group" href="/Home/Index" onclick="itClicked()">
+                                Home
+                                <span class="glyphicon glyphicon-home"></span>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a class="btn btn-group" href="/Item/Index">
+                                Your Items
+                                <span class="glyphicon glyphicon-gift"></span>
+                            </a>
+                        </li>
+
+                        <li class="list-group-item">
+                            <a class="btn btn-group" href="/User/Create">
+                                Account
+                                <span class="glyphicon glyphicon-user large"></span>
+                            </a>
+                        </li>
+
+                        <li class="divider-vertical"></li>
+                        <li class="list-group-item">
+                            <a class="btn btn-group" href="/Home/Contact">
+                                Contact
+                                <span class="glyphicon glyphicon-phone"></span>
+                            </a>
+                        </li>
+
+                        <li class="list-group-item">
+                            <a class="btn btn-group" href="/Home/About">
+                                About
+                                <span class="glyphicon glyphicon-question-sign"></span>
+
+
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a class="btn btn-group" href="/Item/Create">
+                                Add Item
+                                <span class="glyphicon glyphicon-gift"></span>
+                            </a>
+                        </li>
+
+
+                        <li class="list-group-item">
+                            <a class="btn btn-group" href="/Swap/Create">
+                                New Swap
+                                <span class="glyphicon glyphicon-ban-circle"></span>
+                            </a>
+                        </li>
+
+                        <li class="list-group-item">
+                            <a class="btn btn-group" href="/Shared/sidebarPage">
+                                New Swap
+                                <span class="glyphicon glyphicon-ban-circle"></span>
+                            </a>
+                        </li>
+
+                        <li class="list-group-item">
+                            <a class="btn btn-group" href="/Swap/Index">
+                                Your Swaps
+                                <span class="glyphicon glyphicon-ban-circle"></span>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+
+            <div id="main-wrapper" class="col-md-2 pull-right">
+                <p> test this</p>
+                </div>
+                <div id="main-wrapper" class="col-md-8">
+
+                    <div id="main">
+                        <div class="page-header">
+                            <h3>Admin</h3>
+                        </div>
+                        <p>
+                            @RenderBody()
+
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget magna et ante suscipit lacinia. Aenean porttitor velit id pretium blandit. Aenean ut sodales ante. Ut faucibus ornare venenatis. Duis sit amet arcu eros. Mauris volutpat vestibulum congue. Nam volutpat, urna eu varius dapibus, velit nisl bibendum lorem, sit amet dapibus sem dolor eu felis.
+
+                            Nulla tincidunt augue vel dolor convallis lobortis. Nunc nibh dolor, tincidunt elementum lorem id, porta imperdiet neque. Quisque egestas lacus nec magna mattis aliquam. Nunc eget orci odio. Quisque neque odio, lobortis a orci ut, tempus feugiat tortor. Quisque et tincidunt arcu. Sed vel accumsan risus. Quisque enim ipsum, luctus vitae ultrices at, vulputate eu lorem. Curabitur at nibh sagittis, lobortis odio nec, sodales velit. Aenean interdum, magna nec molestie congue, magna nisi sodales dolor, at mattis ipsum nisi at nibh. Aenean quis dictum lacus. Vivamus commodo sit amet nibh eget scelerisque. Duis consequat fringilla mollis. Sed eros risus, sodales in porttitor bibendum, vulputate ut est.
+
+                            Mauris in ullamcorper sapien. Morbi imperdiet consequat luctus. Donec vestibulum dapibus libero elementum posuere. Quisque posuere ipsum turpis, nec porttitor eros lobortis vel. Proin porttitor consequat adipiscing. Proin posuere orci odio, in pellentesque elit dapibus eu. Sed aliquam mollis hendrerit. Sed quis sapien nisl. Duis a bibendum tortor, nec malesuada justo. Sed luctus lorem nec velit consequat, vel ultricies lorem pulvinar. Mauris leo sapien, fermentum vel eleifend at, cursus quis massa. Ut sit amet venenatis orci, a dictum elit. Praesent a feugiat risus, non venenatis urna. Curabitur nisi sapien, facilisis vitae scelerisque nec, lacinia vel ante. Fusce tristique justo vitae mi lacinia, non interdum erat ultrices. Proin nec tempus odio, suscipit consequat lacus.
+
+                            Cras aliquet tempus libero, quis mattis ipsum. Nam justo odio, mollis at bibendum in, condimentum nec mi. Ut auctor consectetur erat, eget bibendum erat tristique ac. Nullam nisl sapien, pretium at enim nec, tincidunt molestie lacus. Mauris venenatis augue velit, eu malesuada velit faucibus id. Suspendisse ac suscipit magna. Integer elit risus, rutrum a mi vitae, pharetra tristique mi. Ut semper euismod lacus vel dignissim. Maecenas quis erat eget dui vehicula aliquam.
+
+                            Praesent sed dolor euismod, condimentum ante quis, molestie orci. Ut vel venenatis nunc, ut porta lacus. Donec ligula felis, tristique ut sollicitudin eget, commodo vel augue. Maecenas quis enim ac elit bibendum tristique. Suspendisse a vestibulum dui. Donec molestie enim vel ornare fermentum. Etiam suscipit, velit et dapibus dapibus, metus tellus convallis nulla, sit amet pharetra magna nunc id mauris. In eget nunc eleifend, aliquet urna sed, viverra ipsum. Quisque fringilla non eros vitae sollicitudin. Pellentesque non nisl est. Suspendisse potenti. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget magna et ante suscipit lacinia. Aenean porttitor velit id pretium blandit. Aenean ut sodales ante. Ut faucibus ornare venenatis. Duis sit amet arcu eros. Mauris volutpat vestibulum congue. Nam volutpat, urna eu varius dapibus, velit nisl bibendum lorem, sit amet dapibus sem dolor eu felis.
+
+                            Nulla tincidunt augue vel dolor convallis lobortis. Nunc nibh dolor, tincidunt elementum lorem id, porta imperdiet neque. Quisque egestas lacus nec magna mattis aliquam. Nunc eget orci odio. Quisque neque odio, lobortis a orci ut, tempus feugiat tortor. Quisque et tincidunt arcu. Sed vel accumsan risus. Quisque enim ipsum, luctus vitae ultrices at, vulputate eu lorem. Curabitur at nibh sagittis, lobortis odio nec, sodales velit. Aenean interdum, magna nec molestie congue, magna nisi sodales dolor, at mattis ipsum nisi at nibh. Aenean quis dictum lacus. Vivamus commodo sit amet nibh eget scelerisque. Duis consequat fringilla mollis. Sed eros risus, sodales in porttitor bibendum, vulputate ut est.
+
+                            Mauris in ullamcorper sapien. Morbi imperdiet consequat luctus. Donec vestibulum dapibus libero elementum posuere. Quisque posuere ipsum turpis, nec porttitor eros lobortis vel. Proin porttitor consequat adipiscing. Proin posuere orci odio, in pellentesque elit dapibus eu. Sed aliquam mollis hendrerit. Sed quis sapien nisl. Duis a bibendum tortor, nec malesuada justo. Sed luctus lorem nec velit consequat, vel ultricies lorem pulvinar. Mauris leo sapien, fermentum vel eleifend at, cursus quis massa. Ut sit amet venenatis orci, a dictum elit. Praesent a feugiat risus, non venenatis urna. Curabitur nisi sapien, facilisis vitae scelerisque nec, lacinia vel ante. Fusce tristique justo vitae mi lacinia, non interdum erat ultrices. Proin nec tempus odio, suscipit consequat lacus.
+
+                            Cras aliquet tempus libero, quis mattis ipsum. Nam justo odio, mollis at bibendum in, condimentum nec mi. Ut auctor consectetur erat, eget bibendum erat tristique ac. Nullam nisl sapien, pretium at enim nec, tincidunt molestie lacus. Mauris venenatis augue velit, eu malesuada velit faucibus id. Suspendisse ac suscipit magna. Integer elit risus, rutrum a mi vitae, pharetra tristique mi. Ut semper euismod lacus vel dignissim. Maecenas quis erat eget dui vehicula aliquam.
+
+                            Praesent sed dolor euismod, condimentum ante quis, molestie orci. Ut vel venenatis nunc, ut porta lacus. Donec ligula felis, tristique ut sollicitudin eget, commodo vel augue. Maecenas quis enim ac elit bibendum tristique. Suspendisse a vestibulum dui. Donec molestie enim vel ornare fermentum. Etiam suscipit, velit et dapibus dapibus, metus tellus convallis nulla, sit amet pharetra magna nunc id mauris. In eget nunc eleifend, aliquet urna sed, viverra ipsum. Quisque fringilla non eros vitae sollicitudin. Pellentesque non nisl est. Suspendisse potenti. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget magna et ante suscipit lacinia. Aenean porttitor velit id pretium blandit. Aenean ut sodales ante. Ut faucibus ornare venenatis. Duis sit amet arcu eros. Mauris volutpat vestibulum congue. Nam volutpat, urna eu varius dapibus, velit nisl bibendum lorem, sit amet dapibus sem dolor eu felis.
+
+                            Nulla tincidunt augue vel dolor convallis lobortis. Nunc nibh dolor, tincidunt elementum lorem id, porta imperdiet neque. Quisque egestas lacus nec magna mattis aliquam. Nunc eget orci odio. Quisque neque odio, lobortis a orci ut, tempus feugiat tortor. Quisque et tincidunt arcu. Sed vel accumsan risus. Quisque enim ipsum, luctus vitae ultrices at, vulputate eu lorem. Curabitur at nibh sagittis, lobortis odio nec, sodales velit. Aenean interdum, magna nec molestie congue, magna nisi sodales dolor, at mattis ipsum nisi at nibh. Aenean quis dictum lacus. Vivamus commodo sit amet nibh eget scelerisque. Duis consequat fringilla mollis. Sed eros risus, sodales in porttitor bibendum, vulputate ut est.
+
+                            Mauris in ullamcorper sapien. Morbi imperdiet consequat luctus. Donec vestibulum dapibus libero elementum posuere. Quisque posuere ipsum turpis, nec porttitor eros lobortis vel. Proin porttitor consequat adipiscing. Proin posuere orci odio, in pellentesque elit dapibus eu. Sed aliquam mollis hendrerit. Sed quis sapien nisl. Duis a bibendum tortor, nec malesuada justo. Sed luctus lorem nec velit consequat, vel ultricies lorem pulvinar. Mauris leo sapien, fermentum vel eleifend at, cursus quis massa. Ut sit amet venenatis orci, a dictum elit. Praesent a feugiat risus, non venenatis urna. Curabitur nisi sapien, facilisis vitae scelerisque nec, lacinia vel ante. Fusce tristique justo vitae mi lacinia, non interdum erat ultrices. Proin nec tempus odio, suscipit consequat lacus.
+
+                            Cras aliquet tempus libero, quis mattis ipsum. Nam justo odio, mollis at bibendum in, condimentum nec mi. Ut auctor consectetur erat, eget bibendum erat tristique ac. Nullam nisl sapien, pretium at enim nec, tincidunt molestie lacus. Mauris venenatis augue velit, eu malesuada velit faucibus id. Suspendisse ac suscipit magna. Integer elit risus, rutrum a mi vitae, pharetra tristique mi. Ut semper euismod lacus vel dignissim. Maecenas quis erat eget dui vehicula aliquam.
+
+                            Praesent sed dolor euismod, condimentum ante quis, molestie orci. Ut vel venenatis nunc, ut porta lacus. Donec ligula felis, tristique ut sollicitudin eget, commodo vel augue. Maecenas quis enim ac elit bibendum tristique. Suspendisse a vestibulum dui. Donec molestie enim vel ornare fermentum. Etiam suscipit, velit et dapibus dapibus, metus tellus convallis nulla, sit amet pharetra magna nunc id mauris. In eget nunc eleifend, aliquet urna sed, viverra ipsum. Quisque fringilla non eros vitae sollicitudin. Pellentesque non nisl est. Suspendisse potenti.
+                        </p>
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+
+        <div class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+
+
+
+
+                test
+            </div>
+        </div>
+
+    </container>
 
 
 </body>
+
+
 </html>
-
-
-

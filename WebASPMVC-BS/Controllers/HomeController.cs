@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data;
+using System.Data.Entity;
+using WebASPMVC_BS.FirstDBModel;
 using WebASPMVC_BS.Models;
 
 namespace WebASPMVC_BS.Controllers
 {
     public class HomeController : Controller
     {
+        private Context db = new Context();
+
 
         Models.HomeModel _homeModel;
         
@@ -23,7 +28,12 @@ namespace WebASPMVC_BS.Controllers
 
             ViewData.Add("FooterText", _homeModel.footerText);
 
-            return View();
+            if ((Request!=null) && Request.IsAjaxRequest())
+            {
+                return PartialView("_SearchList");
+            }
+
+            return View(db.TRACKs.ToList());
         }
 
         public ActionResult About()

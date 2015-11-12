@@ -1,0 +1,58 @@
+﻿@model WebASPMVC_BS.Models.ITEM
+
+
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset class="form-horizontal" >
+        <legend><b>Add Item</b></legend>
+        <p>
+            <div class="editor-label round">
+               Description
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.dscr_short)
+                @Html.ValidationMessageFor(model => model.dscr_short)
+            </div>
+
+            <div class="editor-label">
+                Full Description
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(model => model.dscr_full, new { style = "align:left; width: 200px; height: 100px;" })
+                @Html.ValidationMessageFor(model => model.dscr_full)
+
+            </div>
+
+            <div class="editor-label">
+                Condition
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.typ_condition)
+                @Html.ValidationMessageFor(model => model.typ_condition)
+            </div>
+        </p>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

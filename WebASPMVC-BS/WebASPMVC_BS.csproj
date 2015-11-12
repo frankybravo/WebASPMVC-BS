@@ -128,8 +128,9 @@
     <Reference Include="T4MVCExtensions">
       <HintPath>..\packages\T4MVCExtensions.3.6.5\lib\net40\T4MVCExtensions.dll</HintPath>
     </Reference>
-    <Reference Include="TwitterBootstrapMVC4">
-      <HintPath>..\packages\TwitterBootstrapMVC.3.14.4\lib\net40\TwitterBootstrapMVC4.dll</HintPath>
+    <Reference Include="TwitterBootstrapMVC4, Version=3.14.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\TwitterBootstrapMVC.3.14.10\lib\net40\TwitterBootstrapMVC4.dll</HintPath>
     </Reference>
     <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -193,20 +194,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\AuthConfig.cs" />
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="App_Data\App_Start\AuthConfig.cs" />
+    <Compile Include="App_Data\App_Start\BundleConfig.cs" />
+    <Compile Include="App_Data\App_Start\FilterConfig.cs" />
+    <Compile Include="App_Data\App_Start\RouteConfig.cs" />
+    <Compile Include="App_Data\App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\db.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\TrackController.cs" />
+    <Compile Include="Controllers\ItemController.cs" />
+    <Compile Include="Controllers\SwapController.cs" />
+    <Compile Include="Track\TrackController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
-    <Compile Include="FirstDBModel\Context.cs" />
+    <Compile Include="Models\FirstDBModel\Context.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\FEEDBACK.cs">
+      <DependentUpon>FirstDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\FirstDBModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -223,10 +231,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FirstDBModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ITEM.cs">
+      <DependentUpon>FirstDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ITEM_IMG.cs">
+      <DependentUpon>FirstDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SWAP.cs">
+      <DependentUpon>FirstDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\TRACK.cs">
       <DependentUpon>FirstDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\USER.cs">
+      <DependentUpon>FirstDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USR_COM.cs">
       <DependentUpon>FirstDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -288,6 +308,10 @@
     <Content Include="Content\bootswatch\united\bootstrap-responsive.min.css" />
     <Content Include="Content\bootswatch\united\bootstrap.css" />
     <Content Include="Content\bootswatch\united\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\metisMenu.css" />
+    <Content Include="Content\sb-admin-2.css" />
+    <Content Include="Content\SideMenu.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -382,8 +406,11 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\metisMenu.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\sb-admin-2.js" />
     <Content Include="Scripts\TwitterBootstrapMvcJs.js" />
+    <Content Include="Scripts\_myJavaScript.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -423,16 +450,36 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Track\Index.cshtml" />
-    <Content Include="Views\Track\Details.cshtml" />
-    <Content Include="Views\Track\Create.cshtml" />
-    <Content Include="Views\Track\Edit.cshtml" />
-    <Content Include="Views\Track\Delete.cshtml" />
-    <Content Include="Views\Track\IndexCarousel.cshtml" />
+    <Content Include="Track\Index.cshtml" />
+    <Content Include="Track\Details.cshtml" />
+    <Content Include="Track\Create.cshtml" />
+    <Content Include="Track\Edit.cshtml" />
+    <Content Include="Track\Delete.cshtml" />
+    <Content Include="Track\IndexCarousel.cshtml" />
+    <Content Include="Views\Home\_SearchList.cshtml" />
+    <Content Include="Views\SearchList\Index.cshtml" />
+    <Content Include="Views\SearchList\Details.cshtml" />
+    <Content Include="Views\SearchList\Create.cshtml" />
+    <Content Include="Views\SearchList\Edit.cshtml" />
+    <Content Include="Views\SearchList\Delete.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\Swap\Index.cshtml" />
+    <Content Include="Views\Swap\Details.cshtml" />
+    <Content Include="Views\Swap\Create.cshtml" />
+    <Content Include="Views\Swap\Edit.cshtml" />
+    <Content Include="Views\Swap\Delete.cshtml" />
+    <Content Include="Views\Item\Index.cshtml" />
+    <Content Include="Views\Item\Details.cshtml" />
+    <Content Include="Views\Item\Create.cshtml" />
+    <Content Include="Views\Item\Edit.cshtml" />
+    <Content Include="Views\Item\Delete.cshtml" />
+    <Content Include="Views\Shared\sidebarPage.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

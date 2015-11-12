@@ -7,6 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+
 namespace WebASPMVC_BS.Models
 {
     using System;
@@ -15,6 +19,36 @@ namespace WebASPMVC_BS.Models
     public partial class USER
     {
         public int id { get; set; }
+
+        [Required]
+        [Display(Name = "User name")]
         public string name { get; set; }
+
+        [Required]
+        [Display(Name = "Password")]
+        public string password { get; set; }
+
+        [Required]
+        [Display(Name = "First name")]
+        public string first_name { get; set; }
+       
+        [Required]
+        [Display(Name = "Surname")]
+        public string last_name { get; set; }
+
+        [Required]
+        [Display(Name = "eMail")]
+        public string email_addr_1 { get; set; }
+        
+        [Display(Name = "eMail")]
+        public string email_addr_2 { get; set; }
+
+        [Required]
+        [Display(Name = "Shipping Address")]
+        public string shipping_address { get; set; }
+        
+       
+        public string account_status { get; set; }
+        public string usr_lvl { get; set; }
     }
 }

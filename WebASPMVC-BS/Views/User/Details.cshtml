@@ -1,0 +1,78 @@
+﻿@model WebASPMVC_BS.Models.USER
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>USER</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.password)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.password)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.first_name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.first_name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.last_name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.last_name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.email_addr_1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.email_addr_1)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.email_addr_2)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.email_addr_2)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.shipping_address)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.shipping_address)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.account_status)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.account_status)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.usr_lvl)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.usr_lvl)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

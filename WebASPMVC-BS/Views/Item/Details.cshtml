@@ -1,0 +1,28 @@
+﻿@model WebASPMVC_BS.Models.ITEM
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ITEM</legend>
+
+    <blockquote contenteditable="false">
+
+        <span class="label label-primary" contenteditable="true">@Html.DisplayFor(model => model.dscr_short)</span>
+
+        <p> Full Description: @Html.DisplayFor(model => model.dscr_full)</p>
+
+        <small>
+            Condition:  @Html.DisplayFor(model => model.typ_condition)
+        </small>
+    
+    </blockquote>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

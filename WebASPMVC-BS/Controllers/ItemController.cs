@@ -10,38 +10,33 @@ using WebASPMVC_BS.FirstDBModel;
 
 namespace WebASPMVC_BS.Controllers
 {
-    public class TrackController : Controller
+    public class ItemController : Controller
     {
         private Context db = new Context();
 
         //
-        // GET: /Track/
+        // GET: /Item/
 
         public ActionResult Index()
         {
-            return View(db.TRACKs.ToList());
-        }
-
-        public ActionResult IndexCarousel()
-        {
-            return View(db.TRACKs.ToList());
+            return View(db.ITEMs.ToList());
         }
 
         //
-        // GET: /Track/Details/5
+        // GET: /Item/Details/5
 
         public ActionResult Details(int id = 0)
         {
-            TRACK track = db.TRACKs.Find(id);
-            if (track == null)
+            ITEM item = db.ITEMs.Find(id);
+            if (item == null)
             {
                 return HttpNotFound();
             }
-            return View(track);
+            return View(item);
         }
 
         //
-        // GET: /Track/Create
+        // GET: /Item/Create
 
         public ActionResult Create()
         {
@@ -49,73 +44,73 @@ namespace WebASPMVC_BS.Controllers
         }
 
         //
-        // POST: /Track/Create
+        // POST: /Item/Create
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(TRACK track)
+        public ActionResult Create(ITEM item)
         {
             if (ModelState.IsValid)
             {
-                db.TRACKs.Add(track);
+                db.ITEMs.Add(item);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(track);
+            return View(item);
         }
 
         //
-        // GET: /Track/Edit/5
+        // GET: /Item/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
-            TRACK track = db.TRACKs.Find(id);
-            if (track == null)
+            ITEM item = db.ITEMs.Find(id);
+            if (item == null)
             {
                 return HttpNotFound();
             }
-            return View(track);
+            return View(item);
         }
 
         //
-        // POST: /Track/Edit/5
+        // POST: /Item/Edit/5
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(TRACK track)
+        public ActionResult Edit(ITEM item)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(track).State = EntityState.Modified;
+                db.Entry(item).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(track);
+            return View(item);
         }
 
         //
-        // GET: /Track/Delete/5
+        // GET: /Item/Delete/5
 
         public ActionResult Delete(int id = 0)
         {
-            TRACK track = db.TRACKs.Find(id);
-            if (track == null)
+            ITEM item = db.ITEMs.Find(id);
+            if (item == null)
             {
                 return HttpNotFound();
             }
-            return View(track);
+            return View(item);
         }
 
         //
-        // POST: /Track/Delete/5
+        // POST: /Item/Delete/5
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            TRACK track = db.TRACKs.Find(id);
-            db.TRACKs.Remove(track);
+            ITEM item = db.ITEMs.Find(id);
+            db.ITEMs.Remove(item);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

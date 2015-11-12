@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WebASPMVC_BS.Models.ITEM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h3>
+    <a class="btn btn-group btn-inverse" href="/Item/Create">
+        Add Item
+        <span class="glyphicon glyphicon-plus-sign large"></span>
+    </a>
+</h3>
+
+@foreach (var item in Model)
+{
+
+    <blockquote contenteditable="false">
+
+        <span class="label label-primary" contenteditable="true">@Html.DisplayFor(modelItem => item.dscr_short)</span>
+
+        <p> Full Description: @Html.DisplayFor(modelItem => item.dscr_full)</p>
+        
+        <small>
+            Condition:  @Html.DisplayFor(modelItem => item.typ_condition)
+        </small>
+        <small>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+        </small>
+
+    </blockquote>
+
+
+}

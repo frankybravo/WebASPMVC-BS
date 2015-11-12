@@ -1,0 +1,61 @@
+﻿@model WebASPMVC_BS.Models.SWAP
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>SWAP</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_usr_offer)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_usr_offer)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_item_offered)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_item_offered)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_usr_agreed)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_usr_agreed)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_item_agreed)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_item_agreed)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_swp_status)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_swp_status)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.tx_notes)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tx_notes)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
